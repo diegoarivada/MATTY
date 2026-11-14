@@ -5,11 +5,8 @@
 	"description": "",
 	"main": "index.js",
 	"dependencies": {
-		"axios": "^0.24.0",
 		"discord.js": "^13.3.1",
-		"dotenv": "^10.0.0",
-		"node-fetch": "^3.0.0",
-		"wjs": "^4.2.5"
+		"dotenv": "^10.0.0"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
