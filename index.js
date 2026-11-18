@@ -1,15 +1,17 @@
-import DiscordJS, { Intents, Message, MessageActionRow } from 'discord.js';
+import { Client, GatewayIntentBits } from 'discord.js';
 import dotenv from 'dotenv';
 import initializeClass from './WolframAlpha.js';
 dotenv.config();
 
 const wolf = initializeClass(process.env.WOLF);
 
-const client = new DiscordJS.Client({
-	intents: [ Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES ]
+// discord.js 14: Intents.FLAGS became GatewayIntentBits. MessageContent is needed to read message text
+// (turn on "Message Content Intent" for the bot in the Discord Developer Portal).
+const client = new Client({
+	intents: [ GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent ]
 });
 
-client.on('ready', () => {
+client.once('clientReady', () => {
 	console.log('The bot is online');
 });
 
